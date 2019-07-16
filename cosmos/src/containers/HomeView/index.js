@@ -7,27 +7,19 @@ import {styles} from './styles';
 import * as globals from '../../lib/globals';
 import {myKey} from "../../lib/myKey";
 import {reshapeNewsData} from "../../lib/functions";
+import {loadNews} from "../../redux/actions/newsActions";
+import {bindActionCreators} from "redux";
+import {connect} from 'react-redux';
 
-export default class NewsFeed extends Component {
+
+class HomeView extends Component {
   state = {
     isNewsModalVisible: false,
-    isModalUrl: undefined,
-    dataSource: null,
-    isLoading: true
+    isModalUrl: undefined
   };
 
   componentDidMount(){
-    fetch(`https://api.nytimes.com/svc/topstories/v2/science.json?api-key=${myKey}`)
-      .then(response => response.json())
-      .then(res => {
-        console.log('Here is our api data', res);
-        console.log('Here reshapedData', reshapeNewsData(res.results));
-        this.setState({
-          isLoading: false,
-          dataSource: reshapeNewsData(res.results)
-        })
-      })
-      .catch(err => console.log(err))
+    this.props.loadNews();
   }
 
   onModalOpen = (url) => {
@@ -45,17 +37,11 @@ export default class NewsFeed extends Component {
   };
 
   render() {
-    if (this.state.isLoading) {
-      return (
-        <View style={globals.COMMON_STYLES.pageContainer}>
-          <ActivityIndicator />
-        </View>
-      )
-    }
+
     return (
       <View style={globals.COMMON_STYLES.pageContainer}>
         {
-          this.state.dataSource.map((article, index) => {
+          this.props.news.map((article, index) => {
             return (
               <Article
                 key={index}
@@ -80,3 +66,17 @@ export default class NewsFeed extends Component {
     )
   }
 };
+
+const mapStateToProps = (state) => {
+  return {
+    news: reshapeNewsData(state.news)
+  }
+};
+
+const mapDispatchToProps = (dispatch) => (
+  bindActionCreators({
+    loadNews
+  }, dispatch)
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeView);

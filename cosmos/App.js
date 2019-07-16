@@ -1,9 +1,21 @@
 import React from 'react';
-import NewsFeed from './src/components/NewsFeed';
+import {Provider} from 'react-redux';
+import {applyMiddleware, createStore} from 'redux';
+import thunk from 'redux-thunk';
+import {createLogger} from 'redux-logger';
+import reducer from './src/redux/reducers';
 import {HomeContainer} from "./src/lib/router";
 
+const logger = createLogger();
+
+const store = createStore(reducer, {}, applyMiddleware(thunk, logger));
+
 const App = () => {
-  return <HomeContainer/>
+  return (
+    <Provider store={store}>
+      <HomeContainer/>
+    </Provider>
+  )
 };
 
 export default App;

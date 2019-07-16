@@ -1,4 +1,12 @@
+import {Dimensions} from 'react-native';
+
+let {height, width} = Dimensions.get('window');
+
 module.exports = {
+  SCREEN_SIZE: {
+    width,
+    height
+  },
   COLORS: {
     PRIMARY: '#005679',
     SECONDARY: '#89C6E1',

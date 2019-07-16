@@ -13,7 +13,7 @@ const getMultimediaUrlFormat = (multimedia, format) => {
 
 export const reshapeNewsData = (news) => {
   return (
-    news.map(({abstract, byline, multimedia, published_date, title, url }) => ({
+    news.newsData.map(({abstract, byline, multimedia, published_date, title, url }) => ({
       description: abstract || '',
       author: byline ? byline.replace('By ', '') : '',
       imageUrl: getMultimediaUrlFormat(multimedia, 'thumbLarge'),
