@@ -12,10 +12,10 @@ const Logo = require('../assets/images/header/icn-logo.png');
 import FooterIcon from '../components/FooterIcon';
 
 // Home tab screen
-import HomeScreen from '../containers/HomeView';
+import HomeScreen from '../containers/HomeContainer';
 
 // Profile tab screen
-import ProfileScreen from '../containers/ProfileView';
+import ProfileScreen from '../containers/ProfileContainer';
 
 // Home tab stack
 const HomeTab = createStackNavigator({

@@ -22,14 +22,11 @@ export default class NewsFeed extends Component {
     fetch(`https://api.nytimes.com/svc/topstories/v2/science.json?api-key=${myKey}`)
       .then(response => response.json())
       .then(res => {
-        console.log('Here is our api data', res);
-        console.log('Here reshapedData', reshapeNewsData(res.results));
         this.setState({
           isLoading: false,
           dataSource: reshapeNewsData(res.results)
         })
       })
-      .catch(err => console.log(err))
   }
 
   onModalOpen = (url) => {
