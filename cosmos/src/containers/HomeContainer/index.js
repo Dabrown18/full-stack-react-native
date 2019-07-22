@@ -11,6 +11,7 @@ const HomeScreen = (props) => {
   // State variables
   const [isNewsModalVisible, setIsNewsModalVisible] = useState(false);
   const [isModalUrl, setIsModalUrl] = useState(undefined);
+  const [searchText, setSearchText] = useState(null);
 
   // Mounted
   useEffect(() => handleComponentMounted(), []);
@@ -36,6 +37,8 @@ const HomeScreen = (props) => {
       isModalUrl={isModalUrl}
       onModalClose={onModalClose}
       news={props.news}
+      setSearchText={setSearchText}
+      searchText={searchText}
     />
   )
 };
