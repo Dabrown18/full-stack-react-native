@@ -19,32 +19,34 @@ const HomeView = (props) => {
     setSearchText
   } = props;
 
-  let currentNewsData = news;
+  let newsData = news;
 
-  if(searchText && searchText.trim() !== '') {
+  if (searchText && searchText.trim() !== "") {
     let dataAfterSearch = [];
+    for (let i = 0; i < newsData.length; i++) {
+      let author = newsData[i].author != null ? newsData[i].author.toLowerCase() : "";
+      let description = newsData[i].description != null ? newsData[i].description.toLowerCase() : "";
+      let title = newsData[i].title != null ? newsData[i].title.toLowerCase() : "";
 
-    for (let  i = 0; i < currentNewsData.length; i++) {
-      let matchAuthor = (currentNewsData[i].author.toLowerCase()).indexOf(searchText.trim().toLowerCase());
-      let matchDescription = (currentNewsData[i].description.toLowerCase()).indexOf(searchText.trim().toLowerCase());
-      let matchTitle = (currentNewsData[i].title.toLowerCase()).indexOf(searchText.trim().toLowerCase());
+      let matchAuthor = author.indexOf(searchText.trim().toLowerCase());
+      let matchDescription = description.indexOf(searchText.trim().toLowerCase());
+      let matchTitle = title.indexOf(searchText.trim().toLowerCase());
 
       if (matchAuthor !== -1 || matchDescription !== -1 || matchTitle !== -1) {
-        dataAfterSearch.push(currentNewsData[i])
+        dataAfterSearch.push(newsData[i])
       }
-
-      currentNewsData = dataAfterSearch;
     }
+    newsData = dataAfterSearch;
   }
 
   return (
     <View style={globals.COMMON_STYLES.pageContainer}>
       <Search searchText={searchText} setSearchText={setSearchText}/>
       {
-        currentNewsData && currentNewsData.length > 0 ? (
+        newsData && newsData.length > 0 ? (
           <View>
             <FlatList
-              data={currentNewsData}
+              data={newsData}
               showVerticalScrollIndicator={false}
               keyExtractor={item => item.url}
               renderItem={({item, ...rest}) => {
@@ -64,7 +66,6 @@ const HomeView = (props) => {
                 )
               }}
             />
-
             <NewsModal
               isNewsModalVisible={isNewsModalVisible}
               onModalClose={onModalClose}
@@ -85,8 +86,8 @@ HomeView.propTypes = {
   isNewsModalVisible: PropTypes.bool,
   isModalUrl: PropTypes.string,
   onModalClose: PropTypes.func,
-  searchText: PropTypes.string,
-  setSearchText: PropTypes.func
+  searchText: PropTypes.string.isRequired,
+  setSearchText: PropTypes.func.isRequired
 };
 
 

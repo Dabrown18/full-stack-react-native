@@ -6,7 +6,6 @@ import {reshapeNewsData} from "../../lib/functions";
 import {loadNews} from "../../redux/actions/newsActions";
 
 const HomeScreen = (props) => {
-  console.log('Here are our props: ', props);
 
   // State variables
   const [isNewsModalVisible, setIsNewsModalVisible] = useState(false);
@@ -37,8 +36,8 @@ const HomeScreen = (props) => {
       isModalUrl={isModalUrl}
       onModalClose={onModalClose}
       news={props.news}
-      setSearchText={setSearchText}
       searchText={searchText}
+      setSearchText={setSearchText}
     />
   )
 };
