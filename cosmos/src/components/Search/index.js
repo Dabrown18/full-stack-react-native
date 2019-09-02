@@ -25,7 +25,7 @@ const Search = ({setSearchText, searchText}) => {
 
 Search.propTypes = {
   setSearchText: PropTypes.func.isRequired,
-  searchText: PropTypes.string.isRequired
+  searchText: PropTypes.string
 };
 
 export default Search;

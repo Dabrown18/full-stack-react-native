@@ -20,7 +20,7 @@ const Byline = ({date, author}) => {
 };
 
 Byline.proptypes = {
-  date: PropTypes.instanceOf(Date).isRequired,
+  date: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
 };
 

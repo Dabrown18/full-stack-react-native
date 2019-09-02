@@ -37,7 +37,7 @@ const NewsModal = (props) => {
 NewsModal.propTypes = {
   isNewsModalVisible: PropTypes.bool.isRequired,
   onModalClose: PropTypes.func.isRequired,
-  isModalUrl: PropTypes.string.isRequired
+  isModalUrl: PropTypes.string
 };
 
 export default NewsModal;

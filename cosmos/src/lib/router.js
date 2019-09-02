@@ -11,6 +11,9 @@ const Logo = require('../assets/images/header/icn-logo.png');
 
 import FooterIcon from '../components/FooterIcon';
 
+// Auth tab screen
+import LoginScreen from "../containers/LoginContainer";
+
 // Home tab screen
 import HomeScreen from '../containers/HomeContainer';
 
@@ -27,7 +30,7 @@ const HomeTab = createStackNavigator({
         backgroundColor: globals.COLORS.PRIMARY
       },
       headerTitle: (
-        <Image source={Logo}/>
+        <Image source={Logo} style={{flex: 1}} resizeMode='contain'/>
       )
     })
   }
@@ -73,4 +76,13 @@ const DashboardTabRoutes = createBottomTabNavigator({
   }
 });
 
+// Profile tab stack
+const AuthTabRoutes = createStackNavigator({
+  Login: {
+    screen: LoginScreen,
+    headerMode: 'screen'
+  }
+});
+
+export const AuthContainer = createAppContainer(AuthTabRoutes);
 export const HomeContainer = createAppContainer(DashboardTabRoutes);

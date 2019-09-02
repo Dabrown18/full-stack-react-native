@@ -45,7 +45,7 @@ Article.propTypes = {
   imageUrl: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  date: PropTypes.instanceOf(Date),
+  date: PropTypes.string,
   author: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   onPress: PropTypes.func.isRequired,

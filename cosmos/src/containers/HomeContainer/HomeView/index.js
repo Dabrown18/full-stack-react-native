@@ -86,7 +86,7 @@ HomeView.propTypes = {
   isNewsModalVisible: PropTypes.bool,
   isModalUrl: PropTypes.string,
   onModalClose: PropTypes.func,
-  searchText: PropTypes.string.isRequired,
+  searchText: PropTypes.string,
   setSearchText: PropTypes.func.isRequired
 };
 
