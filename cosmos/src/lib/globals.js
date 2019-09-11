@@ -18,6 +18,16 @@ module.exports = {
     LINK_COLOR: '#48E9D9',
     MUTED_COLOR: '#8E8786'
   },
+  LOGIN_TYPE: {
+    normal: 1,
+    touch: 2,
+    face: 3,
+  },
+  ASYNC_STORAGE_TYPE: {
+    userData: 'userData',
+    userSettings: 'userSettings',
+    deviceToken: 'deviceToken'
+  },
   COMMON_STYLES: {
     pageContainer: {
       backgroundColor: '#F4F4F6',
