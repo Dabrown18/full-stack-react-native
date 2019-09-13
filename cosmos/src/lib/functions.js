@@ -1,4 +1,5 @@
 import moment from 'moment';
+import {Alert} from 'react-native';
 
 const getMultimediaUrlFormat = (multimedia, format) => {
   // If multimedia does exist return empty string
@@ -21,5 +22,22 @@ export const reshapeNewsData = (news) => {
       title,
       url
     }))
+  )
+};
+
+export const displayAlert = (alertMessage, alertTitle) => {
+  let title = alertTitle ? alertTitle : 'Cosmos';
+
+  return (
+    Alert.alert(
+      title,
+      alertMessage,
+      [
+        {
+          text: 'OK',
+          onPress: () => console.log('OK pressed')
+        }
+      ]
+    )
   )
 };

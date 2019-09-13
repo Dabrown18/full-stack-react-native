@@ -30,7 +30,7 @@ export default function loginReducer(state = defaultLoginState, action) {
         userData: action.responseData,
         isLogged: true
       });
-    case: ActionTypes.ENABLE_LOGIN_SUCCESS:
+    case ActionTypes.ENABLE_LOGIN_SUCCESS:
       return Object.assign({}, state, {
         isLoading: false,
         isLogged: true

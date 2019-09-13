@@ -28,6 +28,14 @@ module.exports = {
     userSettings: 'userSettings',
     deviceToken: 'deviceToken'
   },
+  BUTTON_TYPE: {
+    loginButton: 1,
+    signOutButton: 2
+  },
+  BUTTON_TITLE: {
+    loginTitle: 'SIGN IN',
+    signOutTitle: 'SIGN OUT'
+  },
   COMMON_STYLES: {
     pageContainer: {
       backgroundColor: '#F4F4F6',
