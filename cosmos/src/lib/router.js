@@ -82,6 +82,11 @@ const AuthTabRoutes = createStackNavigator({
     screen: LoginScreen,
     headerMode: 'screen'
   }
+}, {
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false
+  }
 });
 
 export const AuthContainer = createAppContainer(AuthTabRoutes);

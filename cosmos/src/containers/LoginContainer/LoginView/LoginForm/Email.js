@@ -12,24 +12,21 @@ const Email = (props) => {
   return (
     <View style={styles.inputContainer}>
       <View style={styles.inputInnerContainer}>
-        <TextInput
-          style={styles.inputText}
-          placeholder={'Email'}
-          ref={input => {
-            this.emailTextInput = input;
-          }}
-          onSubmitEditing={() => {
-            this.passwordTextInput.focus()
-          }}
-          blurOnSubmit={false}
-          value={email}
-          autoCapitalize = 'none'
-          onChangeText={text => setEmail(text)}
-          placeholderTextColor={'#FFFFFF'}
-          clearButtonMode='while-editing'
-          returnKeyType={"next"}
-          keyboardType="email-address"
-        />
+        <TextInput style={styles.inputText} placeholder={'Email'}
+                   ref={input => {
+                     this.emailTextInput = input;
+                   }}
+                   onSubmitEditing={() => {
+                     this.passwordTextInput.focus();
+                   }}
+                   blurOnSubmit={false}
+                   value={email}
+                   autoCapitalize = 'none'
+                   onChangeText={(text) => setEmail(text)}
+                   placeholderTextColor={'#FFFFFF'} clearButtonMode="while-editing"
+                   returnKeyType={"next"} keyboardType="email-address">
+        </TextInput>
+
       </View>
       <View style={styles.inputDividerLine} />
     </View>

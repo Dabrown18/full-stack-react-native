@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {View, KeyboardAvoidingView} from 'react-native';
 import * as globals from '../../../../lib/globals';
-import {styles} from "../styles";
-import Email from "./Email";
-import Password from "./Password";
+import {styles} from '../styles';
+import Email from './Email';
+import Password from './Password';
 import Button from '../../../../components/Button';
 
 const LoginForm = (props) => {

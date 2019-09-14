@@ -17,7 +17,7 @@ const Button = (props) => {
   let buttonStyle = [];
   let buttonTitleStyle = [];
 
-  if (buttonTitle === globals.BUTTON_TYPE.loginButton) {
+  if (buttonType === globals.BUTTON_TYPE.loginButton) {
     buttonStyle.push(styles.loginButton);
     buttonTitleStyle.push(styles.loginTitle);
   } else {
