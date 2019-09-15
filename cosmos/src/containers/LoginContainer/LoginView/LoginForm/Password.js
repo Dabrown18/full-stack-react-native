@@ -18,7 +18,7 @@ const Password = (props) => {
           ref={input => {
             this.passwordTextInput = input;
           }}
-          onSubmitEditing={Keyboard.dismiss()}
+          onSubmitEditing={Keyboard.dismiss}
           value={password}
           secureTextEntry={true}
           onChangeText={text => setPassword(text)}

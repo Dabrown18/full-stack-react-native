@@ -1,5 +1,5 @@
-let productionUrl = 'https://pure-beach-42937.herokuapp.com/';
-let developmentUrl = 'http://localhost:3000/';
+let productionUrl = 'https://pure-beach-42937.herokuapp.com';
+let developmentUrl = 'http://localhost:3000';
 
 let baseUrl = developmentUrl;
 let loginApi = '/cosmosapi/sessions/';
@@ -25,3 +25,5 @@ const apiHelper = {
     return baseUrl + loginApi
   }
 };
+
+export default apiHelper;
