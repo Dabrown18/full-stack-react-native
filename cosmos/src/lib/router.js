@@ -13,6 +13,7 @@ import FooterIcon from '../components/FooterIcon';
 
 // Auth tab screen
 import LoginScreen from "../containers/LoginContainer";
+import RegisterScreen from "../containers/RegisterContainer";
 
 // Home tab screen
 import HomeScreen from '../containers/HomeContainer';
@@ -71,7 +72,7 @@ const DashboardTabRoutes = createBottomTabNavigator({
     style: {
       height: 50,
       paddingVertical: 5,
-      backgroundColor: globals.COLORS.white
+      backgroundColor: '#FFFFFF'
     }
   }
 });
@@ -80,6 +81,10 @@ const DashboardTabRoutes = createBottomTabNavigator({
 const AuthTabRoutes = createStackNavigator({
   Login: {
     screen: LoginScreen,
+    headerMode: 'screen'
+  },
+  Register: {
+    screen: RegisterScreen,
     headerMode: 'screen'
   }
 }, {

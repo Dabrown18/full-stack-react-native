@@ -30,10 +30,12 @@ module.exports = {
   },
   BUTTON_TYPE: {
     loginButton: 1,
-    signOutButton: 2
+    registerButton: 2,
+    signOutButton: 3
   },
   BUTTON_TITLE: {
     loginTitle: 'SIGN IN',
+    registerTitle: 'REGISTER',
     signOutTitle: 'SIGN OUT'
   },
   COMMON_STYLES: {
