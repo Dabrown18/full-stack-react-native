@@ -15,6 +15,18 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 20
+  },
+  registerButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: globals.COLORS.ACCENT,
+    borderRadius: 50,
+    marginTop: '15%'
+  },
+  registerTitle: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 20
   }
 });
 

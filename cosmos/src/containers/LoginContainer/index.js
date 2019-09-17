@@ -36,6 +36,10 @@ const LoginScreen = (props) => {
     }
   };
 
+  const onRegisterButtonPress = () => {
+    navigate('Register', {'fromScreen': 'Login'})
+  };
+
   return (
     <LoginView
       email={email}
@@ -43,6 +47,7 @@ const LoginScreen = (props) => {
       password={password}
       setPassword={setPassword}
       onLoginButtonPress={onLoginButtonPress}
+      onRegisterButtonPress={onRegisterButtonPress}
     />
   )
 };

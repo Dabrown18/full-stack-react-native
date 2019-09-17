@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import {View, Image, StatusBar, ImageBackground} from 'react-native';
 import * as globals from '../../../lib/globals';
 import {images, styles} from './styles';
-import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 import Loader from '../../../components/Loader';
+import Header from "../../../components/Header";
 
-const LoginView = (props) => {
+const RegisterView = (props) => {
   const {
-    onLoginButtonPress,
     onRegisterButtonPress,
     email,
+    displayName,
+    setDisplayName,
     password,
     setEmail,
     setPassword,
@@ -19,9 +21,15 @@ const LoginView = (props) => {
 
   return (
     <ImageBackground style={styles.screenMain} source={images.background}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor={globals.COLORS.PRIMARY}
+      <Header
+        isBackButtonRequired={true}
+        navigation={props.navigation}
+        customHeaderStyle={{
+          height: 50,
+          alignItems: "center",
+          paddingTop: 20,
+          backgroundColor: 'rgba(0, 86, 121, 0.8)'
+        }}
       />
       {isLoginServiceLoading ? <Loader /> : null}
       <View style={styles.screenContainer}>
@@ -29,20 +37,20 @@ const LoginView = (props) => {
           <Image source={images.logo} style={styles.logoImage} resizeMode='contain'/>
         </View>
       </View>
-      <LoginForm
+      <RegisterForm
         email={email}
+        displayName={displayName}
+        setDisplayName={setDisplayName}
         setEmail={setEmail}
         password={password}
         setPassword={setPassword}
-        onLoginButtonPress={onLoginButtonPress}
         onRegisterButtonPress={onRegisterButtonPress}
       />
     </ImageBackground>
   )
 };
 
-LoginView.propTypes = {
-  onLoginButtonPress: PropTypes.func,
+RegisterView.propTypes = {
   onRegisterButtonPress: PropTypes.func,
   email: PropTypes.string,
   password: PropTypes.string,
@@ -51,4 +59,4 @@ LoginView.propTypes = {
   isLoginServiceLoading: PropTypes.bool
 };
 
-export default LoginView;
+export default RegisterView;

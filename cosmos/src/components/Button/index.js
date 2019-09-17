@@ -20,6 +20,9 @@ const Button = (props) => {
   if (buttonType === globals.BUTTON_TYPE.loginButton) {
     buttonStyle.push(styles.loginButton);
     buttonTitleStyle.push(styles.loginTitle);
+  } else if (buttonType === globals.BUTTON_TYPE.registerButton) {
+    buttonStyle.push(styles.registerButton);
+    buttonTitleStyle.push(styles.registerTitle);
   } else {
     buttonStyle.push(styles.signOutButton);
     buttonTitleStyle.push(styles.signOutTitle);
