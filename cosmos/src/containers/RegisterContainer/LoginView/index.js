@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, Image, StatusBar, ImageBackground} from 'react-native';
+import {View, Image, StatusBar, ImageBackground, Text} from 'react-native';
 import * as globals from '../../../lib/globals';
 import {images, styles} from './styles';
-import RegisterForm from './RegisterForm';
+import LoginForm from './LoginForm';
 import Loader from '../../../components/Loader';
 import Header from "../../../components/Header";
 
-const RegisterView = (props) => {
+const LoginView = (props) => {
   const {
-    onRegisterButtonPress,
+    onLoginButtonPress,
     email,
-    displayName,
-    setDisplayName,
     password,
     setEmail,
     setPassword,
+    displayName,
+    setDisplayName,
     isLoginServiceLoading
   } = props;
 
@@ -28,35 +28,44 @@ const RegisterView = (props) => {
           height: 50,
           alignItems: "center",
           paddingTop: 20,
-          backgroundColor: 'rgba(0, 86, 121, 0.8)'
-        }}
+          backgroundColor: 'rgba(0, 86, 121, 0.8)'}}
       />
       {isLoginServiceLoading ? <Loader /> : null}
       <View style={styles.screenContainer}>
         <View style={styles.logoView}>
           <Image source={images.logo} style={styles.logoImage} resizeMode='contain'/>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: globals.SCREEN_SIZE.width / 15
+            }}
+          >
+            Create Your Account
+          </Text>
         </View>
       </View>
-      <RegisterForm
+      <LoginForm
         email={email}
-        displayName={displayName}
-        setDisplayName={setDisplayName}
         setEmail={setEmail}
         password={password}
         setPassword={setPassword}
-        onRegisterButtonPress={onRegisterButtonPress}
+        displayName={displayName}
+        setDisplayName={setDisplayName}
+        onLoginButtonPress={onLoginButtonPress}
       />
     </ImageBackground>
   )
 };
 
-RegisterView.propTypes = {
-  onRegisterButtonPress: PropTypes.func,
+LoginView.propTypes = {
+  onLoginButtonPress: PropTypes.func,
   email: PropTypes.string,
   password: PropTypes.string,
   setEmail: PropTypes.func.isRequired,
   setPassword: PropTypes.func.isRequired,
+  displayName: PropTypes.string,
+  setDisplayName: PropTypes.func,
   isLoginServiceLoading: PropTypes.bool
 };
 
-export default RegisterView;
+export default LoginView;

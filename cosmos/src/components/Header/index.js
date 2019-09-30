@@ -1,53 +1,63 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import {StatusBar, View, Text, TouchableOpacity, Keyboard, Image} from 'react-native';
-import * as globals from  '../../lib/globals';
-import {styles, images} from "./styles";
-import {useNavigation} from "react-navigation-hooks";
-
+import React, { Component } from 'react';
+import { StatusBar, View, Text, Image, TouchableOpacity, Keyboard} from 'react-native';
+import globals from "../../lib/globals";
+import { images, styles } from "./styles";
+import { useNavigation } from "react-navigation-hooks";
 const Header = (props) => {
-  const {navigate, goBack} = useNavigation();
+  const { navigate, goBack } = useNavigation();
   const {
     isBackButtonRequired,
+    isLogoRequired,
     headerTitle,
     customHeaderStyle
   } = props;
 
   const onLeftMenuPress = () => {
     Keyboard.dismiss();
-    if (isBackButtonRequired) {
+    if(isBackButtonRequired)
       goBack();
-    }
   };
 
   let headerStyle = styles.headerContainer;
-  if (customHeaderStyle) {
-    headerStyle = customHeaderStyle
-  }
+  if(customHeaderStyle)
+    headerStyle = customHeaderStyle;
 
   return (
     <View style={headerStyle}>
       <StatusBar
         backgroundColor={globals.COLORS.PRIMARY}
-        barStyle='light-content'
+        barStyle="light-content"
       />
+
       {isBackButtonRequired ? (
-        <TouchableOpacity style={styles.leftIconContainer} onPress={onLeftMenuPress}>
+        <TouchableOpacity style={styles.leftIconContainer} onPress={onLeftMenuPress} >
           <Image
-            resizeMode='contain'
+            resizeMode="contain"
             source={images.backButtonImage}
-            style={{alignItems: 'stretch', marginTop: 50}}
-          />
+            style={{ alignItems: "stretch", marginTop: 50}} />
         </TouchableOpacity>
       ) : null }
-      <Text style={styles.headerTitleText}>{headerTitle}</Text>
+      <View style={styles.headerTitleContainer}>
+        {
+          isLogoRequired ? (
+            <Image source={images.logo} resizeMode="contain" style={{alignItems: "stretch"}}/>
+          ) : (
+            <Text style={styles.headerTitleText}>{headerTitle}</Text>
+          )
+        }
+      </View>
     </View>
-  )
+  );
 };
 
 Header.propTypes = {
   isBackButtonRequired: PropTypes.bool,
+  isLogoRequired: PropTypes.bool,
   headerTitle: PropTypes.string,
+  isFilterRequired: PropTypes.bool,
+  filterTitle: PropTypes.string,
+  onFilterPress: PropTypes.func,
   customHeaderStyle: PropTypes.object
 };
 

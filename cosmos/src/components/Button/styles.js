@@ -24,9 +24,21 @@ const styles = StyleSheet.create({
     marginTop: '15%'
   },
   registerTitle: {
-    color: '#FFFFFF',
+    color: 'white',
     fontWeight: 'bold',
     fontSize: 20
+  },
+  signOutButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: globals.COLORS.ACCENT,
+    borderRadius: 50,
+    marginTop: 15
+  },
+  signOutTitle: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 15
   }
 });
 

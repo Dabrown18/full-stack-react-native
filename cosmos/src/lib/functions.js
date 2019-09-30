@@ -41,3 +41,26 @@ export const displayAlert = (alertMessage, alertTitle) => {
     )
   )
 };
+
+export const signOutAlert = (action) => {
+  let title = "Are you sure?";
+
+  return (
+    Alert.alert(
+      title,
+      null,
+      [
+        {
+          text: 'Yes',
+          onPress: () => {
+            action()
+          }
+        },
+        {
+          text: 'No',
+          cancelable: false
+        }
+      ]
+    )
+  )
+};

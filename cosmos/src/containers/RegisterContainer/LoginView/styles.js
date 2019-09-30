@@ -9,10 +9,11 @@ const images = {
 const styles = StyleSheet.create({
   screenMain: {
     flex: 1,
-    backgroundColor: globals.COLORS.PRIMARY
+    backgroundColor: 'rgba(0, 86, 121, 0.8)'
   },
   screenContainer: {
     flex: 1,
+    alignItems: 'center',
     backgroundColor: 'rgba(0, 86, 121, 0.8)'
   },
   logoView: {

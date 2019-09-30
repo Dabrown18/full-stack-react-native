@@ -32,7 +32,7 @@ const Button = (props) => {
     }
 
     if (buttonType === globals.BUTTON_TYPE.signOutButton) {
-      buttonStyle.push({marginLeft: 0, marginBottom: 10})
+      buttonStyle.push({marginLeft: 10, marginBottom: 10})
     }
   }
 

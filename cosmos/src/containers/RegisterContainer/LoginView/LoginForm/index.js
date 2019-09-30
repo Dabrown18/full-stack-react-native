@@ -5,12 +5,12 @@ import * as globals from '../../../../lib/globals';
 import {styles} from '../styles';
 import Email from './Email';
 import Password from './Password';
-import DisplayName from "./DisplayName";
 import Button from '../../../../components/Button';
+import DisplayName from "./DisplayName";
 
-const RegisterForm = (props) => {
+const LoginForm = (props) => {
   const {
-    onRegisterButtonPress,
+    onLoginButtonPress,
     email,
     setEmail,
     password,
@@ -36,10 +36,10 @@ const RegisterForm = (props) => {
             setPassword={setPassword}
           />
           <Button
-            buttonType={globals.BUTTON_TYPE.registerButton}
+            buttonType={globals.BUTTON_TYPE.loginButton}
             customButtonStyle={{marginTop: 10}}
             buttonSize={{width: '95%', height: '25%'}}
-            buttonOnPress={onRegisterButtonPress}
+            buttonOnPress={onLoginButtonPress}
             buttonTitle={globals.BUTTON_TITLE.registerTitle}
           />
         </View>
@@ -48,8 +48,8 @@ const RegisterForm = (props) => {
   )
 };
 
-RegisterForm.propTypes = {
-  onRegisterButtonPress: PropTypes.func,
+LoginForm.propTypes = {
+  onLoginButtonPress: PropTypes.func,
   email: PropTypes.string,
   setEmail: PropTypes.func,
   password: PropTypes.string,
@@ -58,4 +58,4 @@ RegisterForm.propTypes = {
   setDisplayName: PropTypes.func
 };
 
-export default RegisterForm;
+export default LoginForm;
