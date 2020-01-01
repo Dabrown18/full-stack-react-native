@@ -1,7 +1,7 @@
 let productionUrl = 'https://pure-beach-42937.herokuapp.com';
 let developmentUrl = 'http://localhost:3000';
 
-let baseUrl = developmentUrl;
+let baseUrl = productionUrl;
 let loginApi = '/cosmosapi/sessions';
 let registerApi = '/cosmosapi/users';
 
@@ -26,7 +26,7 @@ const apiHelper = {
     return baseUrl + loginApi
   },
   getRegisterApi: () => {
-    return baseUrl + loginApi
+    return baseUrl + registerApi
   }
 };
 
